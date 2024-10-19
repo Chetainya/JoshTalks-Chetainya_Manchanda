@@ -2,26 +2,170 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: linear-gradient(#222c31, #111d32);
+  color: #d9e2f1;
+  min-height: 100vh;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+#main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 40rem;
+  margin: 2rem auto;
+  color: #fff;
+}
+
+.button{
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  background-color: blue;
+  color: white;
+  border: none;
+  box-shadow: none;
+  overflow: hidden;
+  margin: 0 10px;
+}
+
+.button:hover{
+  scale: 1.2;
+  transition: ease-in 0.2s;
+}
+
+.modal {
+  top: 10%;
+  border-radius: 6px;
+  padding: 1.5rem;
+  width: 30rem;
+  max-width: 90%;
+  z-index: 10;
+  overflow: hidden;
+  animation: slide 0.5s ease-out forwards;
+ 
+}
+
+@keyframes slide {
+  0%{
+    transform: translateY(30px);
+    opacity: 0;
   }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+
+  }
+  
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 9;
+}
+
+main {
+  width: 80%;
+  max-width: 40rem;
+  margin: 1rem auto;
+}
+.task-item {
+  width: 100%;
+  margin: 40px 0;
+  border: 2px solid grey;
+  border-radius: 20px;
+  padding: 20px;
+}
+.task-item header {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.buttonContainer{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.buttonContainer button{
+  border: none;
+  color: rgb(22, 22, 232);
+}
+.buttonContainer button:hover{
+  color: rgb(17, 206, 146);
+}
+.buttonContainer .negative:hover{
+  color : red;
+}
+
+.red{
+  color: red;
+}
+.yellow{
+  color: yellow;
+}
+.green{
+  color: rgb(77, 228, 77);
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+form div{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+form div input{
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 2px;
+}
+form div textarea{
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 2px;
+
+}
+form div select{
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 2px;
+
+}
+.deleteModalText{
+  margin: 10px;
+}
+nav{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-self: center;
+  margin-top: 10px;
+  background-color: rgb(145, 145, 222);
+  padding: 10px;
+}
+nav input{
+  width: 500px;
+  color : black;
+  padding: 10px;
+  border-radius: 10px;
+
+}
+nav input::placeholder{
+  color : black;
 }
