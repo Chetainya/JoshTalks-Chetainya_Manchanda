@@ -11,16 +11,19 @@ Before you begin, ensure you have met the following requirements:
 
 1. **Clone the repository**:
 
-   ```bash
-   git clone https://github.com/username/repo.git
+   
+   git clone https://github.com/Chetainya/JoshTalks-Chetainya_Manchanda.git
 
 
 
 
-First, run the development server:
 
 
-npm run dev
+Than, run the development server:
+
+2. npm install
+
+3. npm run dev
 # or
 yarn dev
 # or
@@ -31,6 +34,8 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+Soring Logic : 
 
+The filterAndSortTasks function sorts tasks first by completion status, placing incomplete tasks before completed ones. If two tasks have the same completion status, they are sorted by priority, with higher-priority tasks (e.g., "High") appearing before lower-priority ones (e.g., "Medium" or "Low").
 
 
