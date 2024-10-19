@@ -10,19 +10,34 @@ const priorityOrder = { high: 1, medium: 2, low: 3 };
 
 function RootComponent({initialTasks}) {
     
-    const [tasks , setTasks] = useState(JSON.parse(localStorage.getItem('tasks')) || initialTasks );
-    typeof window !== undefined ? JSON.parse(localStorage.getItem('tasks')) : initialTasks 
+    const [tasks , setTasks] = useState(initialTasks );
+    const [hasMounted, setHasMounted] = useState(false);
+   
+
     const [searchOuery , setSearchQuery] = useState("");
     const [searchedTasks , setSearchedTasks] = useState([]);
     const [isSearching , setIsSearching] = useState(false);
    
+
+
+    useEffect(() => {
+      setHasMounted(true); 
+
+      const savedTasks = localStorage.getItem('tasks');
+      if (savedTasks) {
+          setTasks(JSON.parse(savedTasks));
+      } 
+  }, []);
    
 
 
 
     useEffect(() => {
+      if(hasMounted){
+
         localStorage.setItem('tasks', JSON.stringify(tasks));
-    } , [tasks])
+      }
+    } , [tasks , hasMounted])
 
     const addTask = (newTask) => {
         setIsSearching(false);
@@ -92,6 +107,11 @@ function RootComponent({initialTasks}) {
               setSearchedTasks(result)
         }
       }
+
+      if (!hasMounted) {
+       
+        return null;
+    }
 
   return (
     <>

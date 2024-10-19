@@ -13,6 +13,7 @@ Before you begin, ensure you have met the following requirements:
 
    
    git clone https://github.com/Chetainya/JoshTalks-Chetainya_Manchanda.git
+    cd .\JoshTalks-Chetainya_Manchanda\
 
 
 

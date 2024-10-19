@@ -10,8 +10,8 @@ export default function NewTask({ onDone , addTask , id , title , description , 
     const [formData, setFormData] = useState({
         title: title || "",
         description: description || '',
-        priority: priority || 'medium',  // Default value
-           // Default value
+        priority: priority || 'medium',  
+           
       });
       
       const [errors, setErrors] = useState({});
@@ -54,7 +54,7 @@ export default function NewTask({ onDone , addTask , id , title , description , 
 
         onDone();
          
-        // Clear form after submission
+        
         setFormData({
           title: '',
           description: '',
@@ -86,7 +86,7 @@ export default function NewTask({ onDone , addTask , id , title , description , 
         {errors.title && <span className="red">{errors.title}</span>}
       </div>
 
-      {/* Description Field */}
+      
       <div>
         <label htmlFor="description">Description</label>
         <textarea
@@ -99,7 +99,7 @@ export default function NewTask({ onDone , addTask , id , title , description , 
         {errors.description && <span className="red">{errors.description}</span>}
       </div>
 
-      {/* Priority Field */}
+      
       <div>
         <label htmlFor="priority">Priority</label>
         <select
